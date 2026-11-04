@@ -41,7 +41,7 @@ Augmentasi apa yang membantu U-Net menemukan polip pada citra kolonoskopi, dan a
 <!-- Tulis bagian ini SEBELUM menjalankan eksperimen. Commit dulu, baru jalankan.
      Alasan klinis = kenapa variasi ini mungkin (atau tidak mungkin) terjadi pada kolonoskopi sungguhan. -->
 
-| Skenario 2 | Augmentasi (kode) | Alasan klinis | Hipotesis: Dice naik/turun/sama? |
+| Skenario | Augmentasi (kode) | Alasan klinis | Hipotesis: Dice naik/turun/sama? |
 |---|---|---|---|
 | Tanpa augmentasi | — | Pembanding | — |
 | Flip kiri-kanan dan atas-bawah | v2.RandomHorizontalFlip() & v2.RandomVerticalFlip() | Untuk membuat polip berpindah sisi | Dice sama |
