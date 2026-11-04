@@ -1,0 +1,94 @@
+{
+  "pengaturan": {
+    "CEPAT": true,
+    "JUMLAH_CITRA_LATIH": 200,
+    "JUMLAH_EPOCH": 5,
+    "JUMLAH_ULANGAN": 1,
+    "device": "cuda",
+    "skenario": {
+      "Tanpa augmentasi": "None",
+      "Flip": "Compose(\n      RandomHorizontalFlip(p=0.5)\n      RandomVerticalFlip(p=0.5)\n)",
+      "Geser & perbesar": "RandomAffine(degrees=[0.0, 0.0], translate=(0.1, 0.1), scale=(0.8, 1.2), interpolation=InterpolationMode.NEAREST, fill=0)",
+      "Rotasi": "RandomRotation(degrees=[-180.0, 180.0], interpolation=InterpolationMode.NEAREST, expand=False, fill=0)",
+      "Blur": "GaussianBlur(kernel_size=(5, 5), sigma=[0.1, 2.0])",
+      "Deformasi elastis": "ElasticTransform(alpha=[30.0, 30.0], sigma=[5.0, 5.0], interpolation=InterpolationMode.BILINEAR, fill=0)",
+      "Saturasi": "ColorJitter(saturation=(0.7, 1.3))",
+      "Hue": "ColorJitter(hue=(-0.1, 0.1))",
+      "Kecerahan & kontras": "ColorJitter(brightness=(0.7, 1.3), contrast=(0.7, 1.3))"
+    }
+  },
+  "hasil": {
+    "Tanpa augmentasi": {
+      "dice": [
+        0.45636454224586487
+      ],
+      "iou": [
+        0.32736966013908386
+      ]
+    },
+    "Flip": {
+      "dice": [
+        0.44007328152656555
+      ],
+      "iou": [
+        0.3164926767349243
+      ]
+    },
+    "Geser & perbesar": {
+      "dice": [
+        0.42354151606559753
+      ],
+      "iou": [
+        0.2990582287311554
+      ]
+    },
+    "Rotasi": {
+      "dice": [
+        0.43935486674308777
+      ],
+      "iou": [
+        0.3115704357624054
+      ]
+    },
+    "Blur": {
+      "dice": [
+        0.45646902918815613
+      ],
+      "iou": [
+        0.32787349820137024
+      ]
+    },
+    "Deformasi elastis": {
+      "dice": [
+        0.4739168882369995
+      ],
+      "iou": [
+        0.3482993245124817
+      ]
+    },
+    "Saturasi": {
+      "dice": [
+        0.4219357669353485
+      ],
+      "iou": [
+        0.29417964816093445
+      ]
+    },
+    "Hue": {
+      "dice": [
+        0.38923776149749756
+      ],
+      "iou": [
+        0.26946601271629333
+      ]
+    },
+    "Kecerahan & kontras": {
+      "dice": [
+        0.380295068025589
+      ],
+      "iou": [
+        0.2582489848136902
+      ]
+    }
+  }
+}
