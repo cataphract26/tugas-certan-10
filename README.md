@@ -17,7 +17,7 @@
 
 | Nama | NIM | Username GitHub | Kontribusi utama |
 |---|---|---|---|
-| ✍️ | ✍️ | ✍️ | ✍️ misal: menjalankan eksperimen, menulis Bagian 3 |
+| Akhmad Rasyid Alfarabi | 123430096 | ✍️ | ✍️ misal: menjalankan eksperimen, menulis Bagian 3 |
 | ✍️ | ✍️ | ✍️ | ✍️ |
 | ✍️ | ✍️ | ✍️ | ✍️ |
 
