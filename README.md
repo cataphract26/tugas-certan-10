@@ -17,8 +17,8 @@
 
 | Nama | NIM | Username GitHub | Kontribusi utama |
 |---|---|---|---|
-| Akhmad Rasyid Alfarabi | 123430096 | ✍️ | ✍️ misal: menjalankan eksperimen, menulis Bagian 3 |
-| ✍️ | ✍️ | ✍️ | ✍️ |
+| Akhmad Rasyid Alfarabi | 123430096 | cataphract26 | Menjalankan eksperimen di Google Colab |
+| Geofany Srydevy Sinambela | 123430014 | ✍️ | ✍️ |
 | ✍️ | ✍️ | ✍️ | ✍️ |
 
 ## 1. Pertanyaan
@@ -44,8 +44,14 @@ Augmentasi apa yang membantu U-Net menemukan polip pada citra kolonoskopi, dan a
 | Skenario | Augmentasi (kode) | Alasan klinis | Hipotesis: Dice naik/turun/sama? |
 |---|---|---|---|
 | Tanpa augmentasi | — | Pembanding | — |
-| ✍️ | ✍️ `v2....` | ✍️ | ✍️ |
-| ✍️ | ✍️ `v2....` | ✍️ | ✍️ |
+| Flip kiri-kanan dan atas-bawah | v2.RandomHorizontalFlip() & v2.RandomVerticalFlip() | Untuk membuat polip berpindah sisi | Dice sama |
+| Rotasi | v2.RandomRotation(degrees=180) | Perputaran kamera di dalam usus cukup sulit dikendalikan dan butuh keahlian khusus | Dice sama |
+| Geser & perbesar | v2.RandomAffine(degrees=0, translate=(0.1, 0.1), scale(0.8, 1.2)) | Polip bisa dipotret dari dekat | Dice naik |
+| Kecerahan & kontras | v2.ColorJitter(brightness=0.3, contrast-0.3) | Lampu endoskop terangnya tidak selalu sama, tergantung jarak polip dengan lampu | Dice naik |
+| Saturasi | v2.ColorJitter(saturation=0.3) | warna pucat akan menyulitkan deteksi. warna pekat akan menyulitkan membedakan mana objek yang diinginkan. nilai yang ditentukan tetap sama | Dice sama |
+| Hue (rona warna) | v2.ColorJitter(hue=0.1) | Rona warna tidak perlu diubah untuk melihat petunjuk penting untuk dideteksi | Dice sama |
+| Blur | v2.GaussianBlur(kernel_size=5, sigma=(0.1, 2.0)) | Kamera bergerak menyebabkan foto kabur. Blur perlu dikurangi | Dice naik |
+| Deformasi elastis | v2.ElasticTransform(alpha=30.0) | Ini dapat membantu untuk meniru bentuk polip, karena bentuk polip dapat berbeda-beda | Dice naik |
 
 Contoh augmentasi yang dicoba:
 
