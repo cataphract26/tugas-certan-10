@@ -18,7 +18,7 @@
 | Nama | NIM | Username GitHub | Kontribusi utama |
 |---|---|---|---|
 | Akhmad Rasyid Alfarabi | 123430096 | cataphract26 | Menjalankan eksperimen di Google Colab |
-| Geofany Srydevy Sinambela | 123430014 | geofanysinambela15-max | pembuatan laporan |
+| Geofany Srydevy Sinambela | 123430014 | ✍️ | ✍️ |
 | Zahra Salim | 123430033 | zahrasalim222333 | Pembuatan Laporan |
 
 ## 1. Pertanyaan
@@ -30,9 +30,9 @@ Augmentasi apa yang membantu U-Net menemukan polip pada citra kolonoskopi, dan a
 <!-- Isi dari Bagian 2 notebook. Pastikan CEPAT = False untuk hasil akhir. -->
 
 - Dataset: Kvasir-SEG (1000 citra kolonoskopi + mask polip), diperkecil ke 128 × 128 piksel.
-- Data uji: 200 citra (tetap). Data latih: 200.
-- Model: U-Net mini (±0,5 juta parameter), 40 epoch, 3 ulangan per skenario.
-- Dijalankan di: Google Colab T4.
+- Data uji: 200 citra (tetap). Data latih: ✍️ citra per ulangan.
+- Model: U-Net mini (±0,5 juta parameter), ✍️ epoch, ✍️ ulangan per skenario.
+- Dijalankan di: ✍️ (misal: Google Colab T4 / laptop CPU / Mac M1).
 
 ![Contoh data](hasil/contoh_data.png)
 
@@ -73,7 +73,7 @@ Contoh augmentasi yang dicoba:
 | Kecerahan & kontras | 0.380 ± 0.000 | 0.258 ± 0.000 | 0.380 |
 
 
-`hasil/ringkasan.md`
+✍️ tempel tabel dari `hasil/ringkasan.md`
 
 ![Perbandingan Dice](hasil/perbandingan.png)
 
@@ -92,7 +92,11 @@ Contoh augmentasi yang dicoba:
 <!-- Bandingkan hasil dengan hipotesis di Bagian 3. Hipotesis yang ternyata salah tetap bernilai,
      asalkan dijelaskan kenapa. Perbedaan kecil (lebih kecil dari simpangan baku) belum tentu berarti. -->
 
-✍️ Polip adalah 
+A. Pembahasan 
+
+
+B. Kesimpulan
+1. 
 
 ## 7. Pembagian kerja
 
@@ -118,7 +122,9 @@ uv run jupyter lab segmentasi_polip.ipynb
 Atau buka notebook di Google Colab (Runtime → Change runtime type → T4 GPU).
 
 ## Referensi
-
-- Jha, D., dkk. (2020). Kvasir-SEG: A Segmented Polyp Dataset. *MultiMedia Modeling (MMM 2020)*, 451–462.
-- Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. *MICCAI*. arXiv:1505.04597.
-- ✍️ tambahkan referensi lain yang kalian pakai
+1. Jha, D., dkk. (2020). Kvasir-SEG: A Segmented Polyp Dataset. *MultiMedia Modeling (MMM 2020)*, 451–462.
+2. Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. *MICCAI*. arXiv:1505.04597.
+3. Yeung, M., Sala, E., Schönlieb, C. B., & Rundo, L. (2021). Focus U-Net: A novel dual attention-gated CNN for polyp segmentation during colonoscopy. Computers in biology and medicine, 137, 104815. https://doi.org/10.1016/j.compbiomed.2021.104815
+4. Safarov, S., & Whangbo, T. K. (2021). A-DenseUNet: Adaptive Densely Connected UNet for Polyp Segmentation in Colonoscopy Images with Atrous Convolution. Sensors (Basel, Switzerland), 21(4), 1441. https://doi.org/10.3390/s21041441
+5. Ramzan, M., Raza, M., Sharif, M. I., & Kadry, S. (2022). Gastrointestinal Tract Polyp Anomaly Segmentation on Colonoscopy Images Using Graft-U-Net. Journal of personalized medicine, 12(9), 1459. https://doi.org/10.3390/jpm12091459
+6. Patel, K., Bur, A. M., & Wang, G. (2021). Enhanced U-Net: A Feature Enhancement Network for Polyp Segmentation. Proceedings of the International Robots & Vision Conference. International Robots & Vision Conference, 2021, 181–188. https://doi.org/10.1109/crv52889.2021.00032 
