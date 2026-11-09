@@ -19,7 +19,7 @@
 |---|---|---|---|
 | Akhmad Rasyid Alfarabi | 123430096 | cataphract26 | Menjalankan eksperimen di Google Colab |
 | Geofany Srydevy Sinambela | 123430014 | ✍️ | ✍️ |
-| Zahra Salim | 123430033 | zahrasalim222333 | ✍️ |
+| Zahra Salim | 123430033 | zahrasalim222333 | Pembuatan Laporan |
 
 ## 1. Pertanyaan
 
