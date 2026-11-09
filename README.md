@@ -18,7 +18,7 @@
 | Nama | NIM | Username GitHub | Kontribusi utama |
 |---|---|---|---|
 | Akhmad Rasyid Alfarabi | 123430096 | cataphract26 | Menjalankan eksperimen di Google Colab |
-| Geofany Srydevy Sinambela | 123430014 | ✍️ | ✍️ |
+| Geofany Srydevy Sinambela | 123430014 | geofanysinambela15-maz | pembuat laporan |
 | Zahra Salim | 123430033 | zahrasalim222333 | Pembuatan Laporan |
 
 ## 1. Pertanyaan
