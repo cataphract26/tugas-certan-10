@@ -128,7 +128,9 @@ B. Kesimpulan
 
 <!-- Siapa mengerjakan apa. Penilaian proses kerja dilihat dari riwayat commit tiap anggota. -->
 
-✍️
+- Akhmad Rasyid Alfarabi: Mengerjakan bagian eksperimen di goole coolab
+- Geofany Srydevy Sinambela: Mengerjakan bagian augmentasi dan pembagian kerja
+- Zahra salim: Mengerjakan bagian Pembahasan dan referensi
 
 ## 8. Penggunaan AI
 
