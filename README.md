@@ -86,15 +86,15 @@ Contoh augmentasi yang dicoba:
      Apa yang sering dikira polip padahal bukan? Apakah augmentasi memperbaiki kasus sulit? -->
 
 1. Polip yang seeing terlewat (false negative/ biru)
- - Poli berukuran kecil atau tersembunyi (sebagian): Pada sampel bari ke-2 (gambar citra paling kiri baris ke2), polip yang berukuran sangat kecil atau tersembunyi dibatas/lipatan dinding usus mendominasi warna buru (false negative)
-  - Polip datar (Flat/Sessile)& kemiripan warna/tekstur: Polip yang tidak menonjol tajam dan memiliki warna/tekstur yang hampir identik dengan dinding usus sekitar (muscosal fold) sering mengalami under-segmentasi (area biru di pinggir mask hijau)
-  2. Objek yang sering dikira Polip (False Positive/Mera)
-   - Refleksi cahaya/kilatan lampu endoskop (specular highlight): pada baris ke-1 (sampel paling atas), area berwarna merah(False positive) cukup dominan menduduki bagian atas citra, disebabkan oleh pantulan caya endoskop yang cerah di dinding usus yang licin/basah, sehingga model keliru menganggap kontras/pantulan tersebut sebagai polip
-    - Lipatan dindinh Usus (Mucosal Fold): lipatan usus yang menonjol memiliki kontur geometris mirip dengan bentuk polip, membuat model cenderung memprediksi daerah terseut sebagai polip.
-    3. Apakah augmentasi memperbaiki kasus sulit?
-     - Augmentasi yang Efektif (Memperbaiki Kasus Sulit):Flip (Spatial Flip): Menghasilkan skor Dice tertinggi (0.649 \pm 0.035$) dibanding baseline tanpa augmentasi (0.603 \pm 0.013). Augmentasi posisi/orientasi membantu model mengenali polip dari berbagai sudut tanpa merusak fitur tekstur alami.
+- Poli berukuran kecil atau tersembunyi (sebagian): Pada sampel bari ke-2 (gambar citra paling kiri baris ke2), polip yang berukuran sangat kecil atau tersembunyi dibatas/lipatan dinding usus mendominasi warna buru (false negative)
+- Polip datar (Flat/Sessile)& kemiripan warna/tekstur: Polip yang tidak menonjol tajam dan memiliki warna/tekstur yang hampir identik dengan dinding usus sekitar (muscosal fold) sering mengalami under-segmentasi (area biru di pinggir mask hijau)
+2. Objek yang sering dikira Polip (False Positive/Mera)
+- Refleksi cahaya/kilatan lampu endoskop (specular highlight): pada baris ke-1 (sampel paling atas), area berwarna merah(False positive) cukup dominan menduduki bagian atas citra, disebabkan oleh pantulan caya endoskop yang cerah di dinding usus yang licin/basah, sehingga model keliru menganggap kontras/pantulan tersebut sebagai polip
+- Lipatan dindinh Usus (Mucosal Fold): lipatan usus yang menonjol memiliki kontur geometris mirip dengan bentuk polip, membuat model cenderung memprediksi daerah terseut sebagai polip.
+3. Apakah augmentasi memperbaiki kasus sulit?
+- Augmentasi yang Efektif (Memperbaiki Kasus Sulit):Flip (Spatial Flip): Menghasilkan skor Dice tertinggi (0.649 \pm 0.035$) dibanding baseline tanpa augmentasi (0.603 \pm 0.013). Augmentasi posisi/orientasi membantu model mengenali polip dari berbagai sudut tanpa merusak fitur tekstur alami.
      Rotasi: Menghasilkan peningkatan stabilitas dan skor Dice (0.640 /pm 0.032)
-     - Augmentasi yang Kurang Efektif / Memperburuk Performa:
+- Augmentasi yang Kurang Efektif / Memperburuk Performa:
      Geser & Perbesar (Shift & Scale) & Deformasi Elastis: Menurunkan skor Dice (masing-masing menjadi 0.539 dan 0.530). Pada citra berresolusi kecil (128x128), pergeseran atau deformasi ekstrem justru merusak batas rinci polip kecil dan menghasilkan lebih banyak area False Positive (merah). 
      Kecerahan & Kontras / Saturasi: Tidak secara signifikan membantu mengatasi masalah Specular Highlight (kilatan lampu) dan justru bisa menurunkan nilai Dice.
 
@@ -138,9 +138,9 @@ B. Kesimpulan
      Contoh: "Claude Code (CLI) untuk menulis skenario augmentasi dan memperbaiki error di Bagian 4.
      Draf Bagian 6 ditulis sendiri, lalu dirapikan bahasanya dengan bantuan AI." -->
 
- gemini digunakan untuk memperbaiki kode segmentasi data
- Copilot digunakan untuk memperbaiki git pull yang error dan untuk menyamakan update repo terakhir ke repo lokal 
- Claude digunakan untuk membantu analisis pembahasan dan kesimpulan data  
+ - gemini digunakan untuk memperbaiki kode segmentasi data
+ - Copilot digunakan untuk memperbaiki git pull yang error dan untuk menyamakan update repo terakhir ke repo lokal 
+ - Claude digunakan untuk membantu analisis pembahasan dan kesimpulan data  
 
 ## Cara menjalankan ulang
 
