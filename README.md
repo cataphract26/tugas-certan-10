@@ -104,6 +104,7 @@ Contoh augmentasi yang dicoba:
      asalkan dijelaskan kenapa. Perbedaan kecil (lebih kecil dari simpangan baku) belum tentu berarti. -->
 
 A. Pembahasan 
+
 Hasil eksperimen menunjukkan bahwa dampak augmentasi terhadap segmentasi polip sangat bergantung pada jenis transformasi yang diterapkan. Dibandingkan model tanpa augmentasi (Dice 0,603 ± 0,013), hanya dua skenario yang menghasilkan peningkatan, yaitu Flip (0,649 ± 0,035) dan Rotasi (0,640 ± 0,032). Blur (0,597) memberikan hasil yang hampir setara dengan baseline. Lima skenario lainnya menurunkan Dice, yaitu Hue (0,577), Kecerahan & kontras (0,571), Geser & perbesar (0,539), Deformasi elastis (0,530), dan Saturasi (0,530). Evaluasi terhadap hipotesis. Hipotesis awal hanya sebagian yang terbukti. Flip dan Rotasi diprediksi tidak mengubah Dice, tetapi keduanya justru meningkatkan kinerja. Sebaliknya, Geser & perbesar serta Kecerahan & kontras diprediksi meningkatkan Dice, namun hasilnya menurun. Blur diprediksi meningkatkan Dice, tetapi tidak menunjukkan perubahan yang berarti. Saturasi dan Hue diprediksi tidak berpengaruh, padahal keduanya menurunkan kinerja. Ketidaksesuaian ini menunjukkan bahwa alasan klinis yang masuk akal belum tentu tercermin pada kinerja model, sehingga setiap augmentasi perlu diuji secara empiris.
 
 Augmentasi geometris yang mempertahankan citra (Flip dan Rotasi). Peningkatan pada Flip dan Rotasi dapat dijelaskan oleh sifat data kolonoskopi. Posisi dan orientasi polip pada citra bersifat acak karena kamera bergerak dan berputar di dalam lumen usus, sehingga polip dapat muncul pada sisi dan sudut mana pun. Kedua transformasi ini hanya mengubah letak dan orientasi tanpa mengubah warna, tekstur, maupun bentuk polip, sehingga label tetap konsisten. Dengan hanya 200 citra latih, penambahan variasi posisi ini berperan sebagai regularisasi yang mengurangi overfitting. Perlu dicatat bahwa simpangan baku Flip (0,035) cukup besar dibandingkan selisihnya dengan baseline (sekitar 0,046), sehingga keunggulan ini bersifat indikatif dan belum dapat dinyatakan signifikan secara statistik.
@@ -116,9 +117,8 @@ Peta kesalahan menunjukkan dua sumber kesalahan utama yang bertahan pada hampir 
 
 Penelitian ini memiliki beberapa keterbatasan. Jumlah ulangan hanya tiga dan tidak disertai uji statistik, sehingga selisih kecil, misalnya pada Blur, Hue, dan Kecerahan & kontras, dapat berasal dari variasi acak. Resolusi citra diturunkan menjadi 128 × 128 piksel sehingga hasil pada resolusi asli dapat berbeda. Setiap augmentasi diuji secara terpisah, bukan sebagai kombinasi, dan intensitas parameternya tidak divariasikan. Model yang digunakan berukuran kecil dan evaluasi hanya dilakukan pada satu dataset (Kvasir-SEG), sehingga generalisasi ke dataset lain belum dapat dipastikan.
 
-
-
 B. Kesimpulan
+
 1. Augmentasi yang membantu adalah Flip (Dice 0,649) dan Rotasi (0,640) dibanding tanpa augmentasi (0,603), karena keduanya menambah variasi orientasi polip tanpa mengubah warna dan bentuknya.
 2. Augmentasi yang tidak membantu adalah Geser & perbesar, Deformasi elastis, Saturasi, Hue, serta Kecerahan & kontras, karena merusak ukuran dan batas polip kecil atau mengubah petunjuk warna utama. Blur tidak memberikan perubahan berarti.
 3. Kesalahan utama model berasal dari polip kecil atau datar (false negative) serta kilatan cahaya dan lipatan mukosa (false positive), dan tidak ada augmentasi yang menyelesaikannya sepenuhnya.
@@ -136,7 +136,9 @@ B. Kesimpulan
      Contoh: "Claude Code (CLI) untuk menulis skenario augmentasi dan memperbaiki error di Bagian 4.
      Draf Bagian 6 ditulis sendiri, lalu dirapikan bahasanya dengan bantuan AI." -->
 
-✍️
+ gemini digunakan untuk memperbaiki kode segmentasi data
+ Copilot digunakan untuk memperbaiki git pull yang error dan untuk menyamakan update repo terakhir ke repo lokal 
+ Claude digunakan untuk membantu analisis pembahasan dan kesimpulan data  
 
 ## Cara menjalankan ulang
 
