@@ -30,9 +30,9 @@ Augmentasi apa yang membantu U-Net menemukan polip pada citra kolonoskopi, dan a
 <!-- Isi dari Bagian 2 notebook. Pastikan CEPAT = False untuk hasil akhir. -->
 
 - Dataset: Kvasir-SEG (1000 citra kolonoskopi + mask polip), diperkecil ke 128 × 128 piksel.
-- Data uji: 200 citra (tetap). Data latih: 200.
-- Model: U-Net mini (±0,5 juta parameter), 40 epoch, 3 ulangan per skenario.
-- Dijalankan di: Google Colab T4.
+- Data uji: 200 citra (tetap). Data latih: ✍️ citra per ulangan.
+- Model: U-Net mini (±0,5 juta parameter), ✍️ epoch, ✍️ ulangan per skenario.
+- Dijalankan di: ✍️ (misal: Google Colab T4 / laptop CPU / Mac M1).
 
 ![Contoh data](hasil/contoh_data.png)
 
@@ -62,16 +62,18 @@ Contoh augmentasi yang dicoba:
 
 | Skenario | Dice (rata-rata ± sb) | IoU (rata-rata ± sb) | Dice tiap ulangan |
 |---|---|---|---|
-| Tanpa augmentasi | 0.603 ± 0.013 | 0.483 ± 0.013 | 0.588, 0.619, 0.601 |
-| Flip | 0.649 ± 0.035 | 0.535 ± 0.032 | 0.599, 0.673, 0.675 |
-| Geser & perbesar | 0.539 ± 0.009 | 0.429 ± 0.006 | 0.531, 0.533, 0.552 |
-| Rotasi | 0.640 ± 0.032 | 0.525 ± 0.032 | 0.609, 0.684, 0.627 |
-| Blur | 0.597 ± 0.015 | 0.481 ± 0.012 | 0.597, 0.616, 0.578 |
-| Deformasi elastis | 0.530 ± 0.036 | 0.423 ± 0.029 | 0.505, 0.505, 0.580 |
-| Saturasi | 0.530 ± 0.047 | 0.421 ± 0.038 | 0.555, 0.571, 0.463 |
-| Hue | 0.577 ± 0.019 | 0.468 ± 0.017 | 0.578, 0.600, 0.554 |
-| Kecerahan & kontras | 0.571 ± 0.001 | 0.450 ± 0.004 | 0.570, 0.571, 0.572 |
+| Tanpa augmentasi | 0.456 ± 0.000 | 0.327 ± 0.000 | 0.456 |
+| Flip | 0.440 ± 0.000 | 0.316 ± 0.000 | 0.440 |
+| Geser & perbesar | 0.424 ± 0.000 | 0.299 ± 0.000 | 0.424 |
+| Rotasi | 0.439 ± 0.000 | 0.312 ± 0.000 | 0.439 |
+| Blur | 0.456 ± 0.000 | 0.328 ± 0.000 | 0.456 |
+| Deformasi elastis | 0.474 ± 0.000 | 0.348 ± 0.000 | 0.474 |
+| Saturasi | 0.422 ± 0.000 | 0.294 ± 0.000 | 0.422 |
+| Hue | 0.389 ± 0.000 | 0.269 ± 0.000 | 0.389 |
+| Kecerahan & kontras | 0.380 ± 0.000 | 0.258 ± 0.000 | 0.380 |
 
+
+✍️ tempel tabel dari `hasil/ringkasan.md`
 
 ![Perbandingan Dice](hasil/perbandingan.png)
 
@@ -83,7 +85,18 @@ Contoh augmentasi yang dicoba:
      Pertanyaan pemandu: Polip seperti apa yang sering terlewat (kecil? datar? warna mirip dinding usus?)
      Apa yang sering dikira polip padahal bukan? Apakah augmentasi memperbaiki kasus sulit? -->
 
-✍️
+1. Polip yang seeing terlewat (false negative/ biru)
+ - Poli berukuran kecil atau tersembunyi (sebagian): Pada sampel bari ke-2 (gambar citra paling kiri baris ke2), polip yang berukuran sangat kecil atau tersembunyi dibatas/lipatan dinding usus mendominasi warna buru (false negative)
+  - Polip datar (Flat/Sessile)& kemiripan warna/tekstur: Polip yang tidak menonjol tajam dan memiliki warna/tekstur yang hampir identik dengan dinding usus sekitar (muscosal fold) sering mengalami under-segmentasi (area biru di pinggir mask hijau)
+  2. Objek yang sering dikira Polip (False Positive/Mera)
+   - Refleksi cahaya/kilatan lampu endoskop (specular highlight): pada baris ke-1 (sampel paling atas), area berwarna merah(False positive) cukup dominan menduduki bagian atas citra, disebabkan oleh pantulan caya endoskop yang cerah di dinding usus yang licin/basah, sehingga model keliru menganggap kontras/pantulan tersebut sebagai polip
+    - Lipatan dindinh Usus (Mucosal Fold): lipatan usus yang menonjol memiliki kontur geometris mirip dengan bentuk polip, membuat model cenderung memprediksi daerah terseut sebagai polip.
+    3. Apakah augmentasi memperbaiki kasus sulit?
+     - Augmentasi yang Efektif (Memperbaiki Kasus Sulit):Flip (Spatial Flip): Menghasilkan skor Dice tertinggi (0.649 \pm 0.035$) dibanding baseline tanpa augmentasi (0.603 \pm 0.013). Augmentasi posisi/orientasi membantu model mengenali polip dari berbagai sudut tanpa merusak fitur tekstur alami.
+     Rotasi: Menghasilkan peningkatan stabilitas dan skor Dice (0.640 /pm 0.032)
+     - Augmentasi yang Kurang Efektif / Memperburuk Performa:
+     Geser & Perbesar (Shift & Scale) & Deformasi Elastis: Menurunkan skor Dice (masing-masing menjadi 0.539 dan 0.530). Pada citra berresolusi kecil (128x128), pergeseran atau deformasi ekstrem justru merusak batas rinci polip kecil dan menghasilkan lebih banyak area False Positive (merah). 
+     Kecerahan & Kontras / Saturasi: Tidak secara signifikan membantu mengatasi masalah Specular Highlight (kilatan lampu) dan justru bisa menurunkan nilai Dice.
 
 ## 6. Pembahasan & kesimpulan
 
